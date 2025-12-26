@@ -1,0 +1,57 @@
+# ╔════════════════════════════════════════════════════════════════════════════╗
+# ║ Fonts                                                                      ║
+# ╚════════════════════════════════════════════════════════════════════════════╝
+
+font-size = 12
+font-family = "FiraCode Nerd Font Reg"
+font-style-bold = false
+font-style-italic = false
+font-style-bold-italic = false
+bold-is-bright = true
+adjust-cell-height = 1
+
+# ╔════════════════════════════════════════════════════════════════════════════╗
+# ║ Window                                                                     ║
+# ╚════════════════════════════════════════════════════════════════════════════╝
+
+theme = arch
+background-opacity = 0.5
+background-blur = true
+
+# ╔════════════════════════════════════════════════════════════════════════════╗
+# ║ Window                                                                     ║
+# ╚════════════════════════════════════════════════════════════════════════════╝
+
+window-vsync                       = true
+window-decoration                  = none
+window-width                       = 80
+window-height                      = 28
+resize-overlay                     = never
+
+#  ════════════════════════════════════════════════════════════════════════════╗
+# ║ Features                                                                   ║
+# ╚════════════════════════════════════════════════════════════════════════════╝
+
+scrollback-limit                   = 125000
+link-url                           = true
+vt-kam-allowed                     = false
+
+
+# ╔════════════════════════════════════════════════════════════════════════════╗
+# ║ Cursor                                                                     ║
+# ╚════════════════════════════════════════════════════════════════════════════╝
+
+cursor-opacity                     = 0.9
+cursor-style                       = block
+cursor-style-blink                 = false
+cursor-click-to-move               = false
+shell-integration-features         = no-cursor
+
+
+# ╔════════════════════════════════════════════════════════════════════════════╗
+# ║ Clipboard                                                                  ║
+# ╚════════════════════════════════════════════════════════════════════════════╝
+
+clipboard-trim-trailing-spaces     = true
+clipboard-paste-bracketed-safe     = true
+copy-on-select                     = false

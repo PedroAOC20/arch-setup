@@ -1,0 +1,47 @@
+/* Fundo geral */
+* {
+  background-color: #0a0f0a;
+  color: #e4f4d1;
+  caret-color: #d6ff8a;
+}
+
+/* Painéis e barras laterais */
+.sidebar,
+.view,
+.window {
+  background-color: #0a0f0a;
+}
+
+/* Seleção */
+.view:selected,
+.view:selected:focus,
+.treeview:selected,
+.treeview:selected:focus {
+  background-color: #9bff78;
+  color: #0a0f0a;
+}
+
+/* Hover */
+.view:hover {
+  background-color: #111811;
+}
+
+/* Barra de caminho (pathbar) */
+.path-bar button {
+  background-color: #111811;
+  color: #c4a045;
+}
+
+.path-bar button:hover {
+  background-color: #1a241a;
+  color: #f4ff8c;
+}
+
+/* Scrollbar */
+scrollbar slider {
+  background-color: #7fff5a;
+}
+
+scrollbar slider:hover {
+  background-color: #9bff78;
+}

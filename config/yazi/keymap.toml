@@ -1,0 +1,157 @@
+"$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
+
+[mgr]
+
+keymap = [
+	{ on = "<Esc>", run = "escape",             desc = "Sair do modo visual, limpar seleção ou cancelar busca" },
+	{ on = "<C-[>", run = "escape",             desc = "Sair do modo visual, limpar seleção ou cancelar busca" },
+	{ on = "q",     run = "quit",               desc = "Sair do processo" },
+	{ on = "Q",     run = "quit --no-cwd-file", desc = "Sair sem salvar o diretório atual" },
+	{ on = "<C-c>", run = "close",              desc = "Fechar a aba atual, ou sair se for a última" },
+	{ on = "<C-z>", run = "suspend",            desc = "Suspender o processo" },
+
+	# Movimentação
+	{ on = "k", run = "arrow prev", desc = "Arquivo anterior" },
+	{ on = "j", run = "arrow next", desc = "Próximo arquivo" },
+
+	{ on = "<Up>",   run = "arrow prev", desc = "Arquivo anterior" },
+	{ on = "<Down>", run = "arrow next", desc = "Próximo arquivo" },
+
+	{ on = "<C-u>", run = "arrow -50%",  desc = "Mover o cursor meia página acima" },
+	{ on = "<C-d>", run = "arrow 50%",   desc = "Mover o cursor meia página abaixo" },
+	{ on = "<C-b>", run = "arrow -100%", desc = "Mover o cursor uma página acima" },
+	{ on = "<C-f>", run = "arrow 100%",  desc = "Mover o cursor uma página abaixo" },
+
+	{ on = "<S-PageUp>",   run = "arrow -50%",  desc = "Mover o cursor meia página acima" },
+	{ on = "<S-PageDown>", run = "arrow 50%",   desc = "Mover o cursor meia página abaixo" },
+	{ on = "<PageUp>",     run = "arrow -100%", desc = "Mover o cursor uma página acima" },
+	{ on = "<PageDown>",   run = "arrow 100%",  desc = "Mover o cursor uma página abaixo" },
+
+	{ on = [ "g", "g" ], run = "arrow top", desc = "Ir para o topo" },
+	{ on = "G",          run = "arrow bot", desc = "Ir para o final" },
+
+	# Navegação
+	{ on = "h", run = "leave", desc = "Voltar para o diretório pai" },
+	{ on = "l", run = "enter", desc = "Entrar no diretório filho" },
+
+	{ on = "<Left>",  run = "leave", desc = "Voltar para o diretório pai" },
+	{ on = "<Right>", run = "enter", desc = "Entrar no diretório filho" },
+
+	{ on = "H", run = "back",    desc = "Voltar para o diretório anterior" },
+	{ on = "L", run = "forward", desc = "Avançar para o próximo diretório" },
+
+	# Seleção
+	{ on = "<Space>", run = [ "toggle", "arrow next" ], desc = "Alternar estado de seleção atual" },
+	{ on = "<C-a>",   run = "toggle_all --state=on",    desc = "Selecionar todos os arquivos" },
+	{ on = "<C-r>",   run = "toggle_all",               desc = "Inverter seleção de todos os arquivos" },
+
+	# Modo visual
+	{ on = "v", run = "visual_mode",         desc = "Entrar no modo visual (seleção)" },
+	{ on = "V", run = "visual_mode --unset", desc = "Entrar no modo visual (desmarcar)" },
+
+	# Rolagem do preview
+	{ on = "K", run = "seek -5", desc = "Subir 5 unidades no preview" },
+	{ on = "J", run = "seek 5",  desc = "Descer 5 unidades no preview" },
+
+	# Spot
+	{ on = "<Tab>", run = "spot", desc = "Marcar arquivo em foco" },
+
+	# Operações de arquivo
+	{ on = "o",         run = "open",                        desc = "Abrir arquivos selecionados" },
+	{ on = "O",         run = "open --interactive",          desc = "Abrir arquivos selecionados de forma interativa" },
+	{ on = "<Enter>",   run = "open",                        desc = "Abrir arquivos selecionados" },
+	{ on = "<S-Enter>", run = "open --interactive",          desc = "Abrir arquivos selecionados de forma interativa" },
+	{ on = "y",         run = "yank",                        desc = "Copiar arquivos selecionados" },
+	{ on = "x",         run = "yank --cut",                  desc = "Recortar arquivos selecionados" },
+	{ on = "p",         run = "paste",                       desc = "Colar arquivos copiados" },
+	{ on = "P",         run = "paste --force",               desc = "Colar arquivos (sobrescrevendo se existir)" },
+	{ on = "-",         run = "link",                        desc = "Criar link simbólico (absoluto)" },
+	{ on = "_",         run = "link --relative",             desc = "Criar link simbólico (relativo)" },
+	{ on = "<C-->",     run = "hardlink",                    desc = "Criar hardlink dos arquivos copiados" },
+	{ on = "Y",         run = "unyank",                      desc = "Cancelar status de cópia" },
+	{ on = "X",         run = "unyank",                      desc = "Cancelar status de cópia" },
+	{ on = "d",         run = "remove",                      desc = "Mover arquivos selecionados para a lixeira" },
+	{ on = "D",         run = "remove --permanently",        desc = "Excluir arquivos permanentemente" },
+	{ on = "a",         run = "create",                      desc = "Criar novo arquivo (terminar com / para diretório)" },
+	{ on = "r",         run = "rename --cursor=before_ext",  desc = "Renomear arquivo(s) selecionado(s)" },
+	{ on = ";",         run = "shell --interactive",         desc = "Executar comando no shell" },
+	{ on = ":",         run = "shell --block --interactive", desc = "Executar comando no shell (aguardar término)" },
+	{ on = ".",         run = "hidden toggle",               desc = "Alternar visibilidade de arquivos ocultos" },
+	{ on = "s",         run = "search --via=fd",             desc = "Buscar arquivos por nome (fd)" },
+	{ on = "S",         run = "search --via=rg",             desc = "Buscar arquivos por conteúdo (ripgrep)" },
+	{ on = "<C-s>",     run = "escape --search",             desc = "Cancelar busca em andamento" },
+	{ on = "z",         run = "plugin fzf",                  desc = "Ir para arquivo/diretório via fzf" },
+	{ on = "Z",         run = "plugin zoxide",               desc = "Ir para diretório via zoxide" },
+
+	# Linemode
+	{ on = [ "m", "s" ], run = "linemode size",        desc = "Modo de linha: tamanho" },
+	{ on = [ "m", "p" ], run = "linemode permissions", desc = "Modo de linha: permissões" },
+	{ on = [ "m", "b" ], run = "linemode btime",       desc = "Modo de linha: data de criação" },
+	{ on = [ "m", "m" ], run = "linemode mtime",       desc = "Modo de linha: data de modificação" },
+	{ on = [ "m", "o" ], run = "linemode owner",       desc = "Modo de linha: proprietário" },
+	{ on = [ "m", "n" ], run = "linemode none",        desc = "Modo de linha: nenhum" },
+
+	# Copiar
+	{ on = [ "c", "c" ], run = "copy path",             desc = "Copiar caminho do arquivo" },
+	{ on = [ "c", "d" ], run = "copy dirname",          desc = "Copiar caminho do diretório" },
+	{ on = [ "c", "f" ], run = "copy filename",         desc = "Copiar nome do arquivo" },
+	{ on = [ "c", "n" ], run = "copy name_without_ext", desc = "Copiar nome sem extensão" },
+
+	# Filtro
+	{ on = "f", run = "filter --smart", desc = "Filtrar arquivos" },
+
+	# Busca
+	{ on = "/", run = "find --smart",            desc = "Encontrar próximo arquivo" },
+	{ on = "?", run = "find --previous --smart", desc = "Encontrar arquivo anterior" },
+	{ on = "n", run = "find_arrow",              desc = "Próximo resultado" },
+	{ on = "N", run = "find_arrow --previous",   desc = "Resultado anterior" },
+
+	# Ordenação
+	{ on = [ ",", "m" ], run = [ "sort mtime --reverse=no", "linemode mtime" ], desc = "Ordenar por data de modificação" },
+	{ on = [ ",", "M" ], run = [ "sort mtime --reverse", "linemode mtime" ],    desc = "Ordenar por data de modificação (reversa)" },
+	{ on = [ ",", "b" ], run = [ "sort btime --reverse=no", "linemode btime" ], desc = "Ordenar por data de criação" },
+	{ on = [ ",", "B" ], run = [ "sort btime --reverse", "linemode btime" ],    desc = "Ordenar por data de criação (reversa)" },
+	{ on = [ ",", "e" ], run = "sort extension --reverse=no",                   desc = "Ordenar por extensão" },
+	{ on = [ ",", "E" ], run = "sort extension --reverse",                      desc = "Ordenar por extensão (reversa)" },
+	{ on = [ ",", "a" ], run = "sort alphabetical --reverse=no",                desc = "Ordenar alfabeticamente" },
+	{ on = [ ",", "A" ], run = "sort alphabetical --reverse",                   desc = "Ordenar alfabeticamente (reversa)" },
+	{ on = [ ",", "n" ], run = "sort natural --reverse=no",                     desc = "Ordenar naturalmente" },
+	{ on = [ ",", "N" ], run = "sort natural --reverse",                        desc = "Ordenar naturalmente (reversa)" },
+	{ on = [ ",", "s" ], run = [ "sort size --reverse=no", "linemode size" ],   desc = "Ordenar por tamanho" },
+	{ on = [ ",", "S" ], run = [ "sort size --reverse", "linemode size" ],      desc = "Ordenar por tamanho (reversa)" },
+	{ on = [ ",", "r" ], run = "sort random --reverse=no",                      desc = "Ordenar aleatoriamente" },
+
+	# Ir para
+	{ on = [ "g", "h" ],       run = "cd ~",             desc = "Ir para a pasta home" },
+	{ on = [ "g", "c" ],       run = "cd ~/.config",     desc = "Ir para ~/.config" },
+	{ on = [ "g", "d" ],       run = "cd ~/Downloads",   desc = "Ir para ~/Downloads" },
+	{ on = [ "g", "<Space>" ], run = "cd --interactive", desc = "Ir para diretório interativamente" },
+	{ on = [ "g", "f" ],       run = "follow",           desc = "Seguir link simbólico selecionado" },
+
+	# Abas
+	{ on = "t", run = "tab_create --current", desc = "Criar nova aba com diretório atual" },
+
+	{ on = "1", run = "tab_switch 0", desc = "Ir para a primeira aba" },
+	{ on = "2", run = "tab_switch 1", desc = "Ir para a segunda aba" },
+	{ on = "3", run = "tab_switch 2", desc = "Ir para a terceira aba" },
+	{ on = "4", run = "tab_switch 3", desc = "Ir para a quarta aba" },
+	{ on = "5", run = "tab_switch 4", desc = "Ir para a quinta aba" },
+	{ on = "6", run = "tab_switch 5", desc = "Ir para a sexta aba" },
+	{ on = "7", run = "tab_switch 6", desc = "Ir para a sétima aba" },
+	{ on = "8", run = "tab_switch 7", desc = "Ir para a oitava aba" },
+	{ on = "9", run = "tab_switch 8", desc = "Ir para a nona aba" },
+
+	{ on = "[", run = "tab_switch -1 --relative", desc = "Ir para a aba anterior" },
+	{ on = "]", run = "tab_switch 1 --relative",  desc = "Ir para a próxima aba" },
+
+	{ on = "{", run = "tab_swap -1", desc = "Trocar aba atual com a anterior" },
+	{ on = "}", run = "tab_swap 1",  desc = "Trocar aba atual com a próxima" },
+
+	# Tarefas
+	{ on = "w", run = "tasks:show", desc = "Mostrar gerenciador de tarefas" },
+
+	# Ajuda
+	{ on = "~",    run = "help", desc = "Abrir ajuda" },
+	{ on = "<F1>", run = "help", desc = "Abrir ajuda" },
+]
+
